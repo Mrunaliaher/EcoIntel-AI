@@ -329,7 +329,7 @@ The backend is implemented using FastAPI.
 | Endpoint | Method | Description |
 |---|---|---|
 | `/` | GET | Provides basic information about the EcoIntel AI backend |
-| `/analyze` | GET | Used for environmental analysis requests depending on the configured backend implementation |
+| `/analyze` | POST | Used for environmental analysis requests depending on the configured backend implementation |
 | `/chat` | POST | Used for conversational environmental queries |
 
 **API Documentation**
