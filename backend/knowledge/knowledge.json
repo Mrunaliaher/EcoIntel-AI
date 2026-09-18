@@ -1,0 +1,58 @@
+[
+  {
+    "id": "soil_carbon",
+    "topic": "soil organic carbon",
+    "source": "FAO",
+    "title": "Recarbonizing Global Soils",
+    "content": "Increasing soil organic carbon through appropriate soil management can improve soil structure, soil health and water-related functions. The magnitude of change depends on climate, soil type and management conditions."
+  },
+  {
+    "id": "soil_cover",
+    "topic": "soil cover",
+    "source": "FAO",
+    "title": "Soil Organic Cover",
+    "content": "Maintaining soil cover protects soil from degradation, supports soil organisms, contributes to nutrient cycling and can improve soil structure and biodiversity."
+  },
+  {
+    "id": "agroforestry",
+    "topic": "agroforestry",
+    "source": "FAO",
+    "title": "Agroforestry",
+    "content": "Agroforestry integrates trees with crops or livestock. Appropriate agroforestry systems can contribute to soil health, water regulation, habitat provision and biodiversity."
+  },
+  {
+    "id": "crop_diversity",
+    "topic": "crop diversification",
+    "source": "FAO",
+    "title": "Conservation Agriculture",
+    "content": "Crop diversification and maintaining soil cover are important components of conservation agriculture and can support soil biological activity, nutrient cycling and ecosystem functions."
+  },
+  {
+    "id": "biodiversity",
+    "topic": "biodiversity",
+    "source": "IPBES",
+    "title": "Global Assessment Report on Biodiversity",
+    "content": "Land-use change is a major pressure on biodiversity. Changes in habitat extent and condition can affect species populations and ecosystem functions."
+  },
+  {
+    "id": "climate_land",
+    "topic": "climate and land",
+    "source": "IPCC",
+    "title": "Climate Change and Land",
+    "content": "Climate change, land degradation, land management, biodiversity and sustainable land management are interconnected. Environmental interventions should consider these interacting factors rather than treating them independently."
+  },
+  {
+    "id": "habitat",
+    "topic": "habitat diversity",
+    "source": "IPBES",
+    "title": "Biodiversity and Ecosystem Services",
+    "content": "Habitat modification and land-use change can reduce biodiversity by changing habitat availability and ecological conditions."
+  },
+  {
+    "id": "water",
+    "topic": "water and ecosystems",
+    "source": "FAO",
+    "title": "Water and Soil Management",
+    "content": "Soil organic matter and appropriate vegetation management can influence soil water retention and resilience to water stress. Management should be adapted to local climate and soil conditions."
+  }
+]

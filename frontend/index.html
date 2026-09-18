@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EcoIntel AI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Header -->
+        <header class="header">
+            <div>
+                <h1>🌿 EcoIntel AI</h1>
+                <p>AI Biodiversity Intelligence Assistant</p>
+            </div>
+
+            <div class="status">
+                <span class="status-dot"></span>
+                Backend Connected
+            </div>
+        </header>
+
+
+        <!-- Main Chat Area -->
+        <main class="chat-container">
+
+            <div class="welcome">
+                <h2>Environmental Intelligence</h2>
+
+                <p>
+                    Ask questions about soil health, biodiversity,
+                    climate, land use, water availability and ecosystems.
+                </p>
+
+                <div class="example-box">
+                    <strong>Try asking:</strong>
+
+                    <p>
+                        "My farm has low soil carbon, low rainfall,
+                        monoculture wheat and very few pollinators.
+                        What should I do?"
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- Messages appear here -->
+            <div id="chatMessages"></div>
+
+        </main>
+
+
+        <!-- Input Area -->
+        <div class="input-area">
+
+            <textarea
+                id="messageInput"
+                placeholder="Describe your environmental situation..."
+                rows="2"
+            ></textarea>
+
+            <button id="sendButton">
+                Send
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
