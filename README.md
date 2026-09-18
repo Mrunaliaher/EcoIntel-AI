@@ -476,7 +476,7 @@ frontend/
 
 Open `frontend/index.html` in a web browser.
 
-The frontend communicates with the FastAPI backend running locally.
+The frontend communicates with the deployed FastAPI backend on Render.
 
 ---
 
@@ -730,8 +730,9 @@ Phase 4
 
 ## 🔗 Project Links
 
-- **GitHub Repository:** [https://github.com/Mrunaliaher/EcoIntel-AI](https://github.com/Mrunaliaher/EcoIntel-AI)
-- **Live Demo:** Not deployed yet
+- **GitHub Repository:** https://github.com/Mrunaliaher/EcoIntel-AI
+- **Live Demo:** https://ecointel-ai.vercel.app/
+- **Backend API:** https://ecointel-ai.onrender.com/
 
 ---
 
