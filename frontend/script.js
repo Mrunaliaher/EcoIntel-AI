@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:8000/chat";
+const API_URL = "https://ecointel-ai.onrender.com/chat";
 
 const messageInput = document.getElementById("messageInput");
 const sendButton = document.getElementById("sendButton");
