@@ -1,35 +1,44 @@
-# 🌿 EcoIntel AI
+# 🌱 EcoIntel AI
 
-## AI Biodiversity Intelligence Chatbot
+### AI-Powered Biodiversity & Environmental Intelligence Chatbot
 
 EcoIntel AI is an AI-powered environmental intelligence chatbot developed for the **Darukaa.Earth AI Biodiversity Intelligence Chatbot Challenge**.
 
-The system analyzes environmental conditions such as **soil health, climate, land use, biodiversity and human impact**, identifies relationships between multiple environmental metrics, retrieves relevant scientific evidence from a structured knowledge base, and generates actionable biodiversity recommendations.
+The system analyzes environmental indicators such as **soil health, climate, land use, biodiversity, and human impact** to identify ecological risks, understand relationships between multiple environmental factors, retrieve scientific evidence, and provide actionable recommendations.
 
 ---
 
 ## 🎯 Project Objective
 
-The main objective of EcoIntel AI is to provide **evidence-informed environmental recommendations** by connecting multiple environmental factors rather than analyzing each factor independently.
+The objective of EcoIntel AI is to transform environmental observations into meaningful ecological insights.
 
-The system considers relationships such as:
+Instead of analyzing environmental parameters independently, the system considers relationships between multiple indicators.
 
-- Soil organic carbon ↔ Water regulation
-- Soil condition ↔ Water stress
-- Land use ↔ Habitat diversity
-- Crop diversity ↔ Pollinator support
-- Habitat conditions ↔ Species richness
-- Climate ↔ Land and biodiversity conditions
+For example:
 
-The goal is to help users understand environmental risks and identify practical interventions that can support biodiversity and ecosystem health.
+- Low soil organic carbon + low rainfall → potential water-related ecological stress
+- Monoculture + low species richness → simplified habitat and reduced ecological diversity
+- Low crop diversity + low pollinator abundance → limited food and habitat resources
+- High pollution + low biodiversity → potential environmental stress on ecosystems
+
+The system combines:
+
+1. Environmental data extraction
+2. Multi-metric reasoning
+3. Risk identification
+4. Scientific knowledge retrieval
+5. Evidence-based explanations
+6. Actionable recommendations
 
 ---
 
-# ✨ Key Features
+## 🧠 Key Features
 
-## 1. Environmental Assessment
+### 1. Multi-Metric Environmental Reasoning
 
-EcoIntel AI analyzes environmental indicators including:
+EcoIntel AI evaluates multiple environmental indicators together instead of treating them as isolated values.
+
+The system can analyze:
 
 - Soil pH
 - Soil organic carbon
@@ -42,95 +51,78 @@ EcoIntel AI analyzes environmental indicators including:
 - Pollinator abundance
 - Pollution
 
-The system identifies potential environmental concerns from the provided information.
+This allows the chatbot to identify relationships and possible ecological risks.
 
----
+### 2. Environmental Risk Identification
 
-## 2. Multi-Metric Environmental Reasoning
+The reasoning engine checks environmental conditions and identifies potential risks, including:
 
-The system does not only analyze individual environmental variables.
+- Soil degradation
+- Water stress
+- Biodiversity loss
+- Habitat simplification
+- Reduced pollinator support
+- Pollution-related ecological stress
+- Climate-related environmental stress
 
-It identifies relationships between multiple indicators.
+The identified risks are based on predefined environmental rules and relationships.
 
-For example:
+### 3. Actionable Recommendations
 
-**Low soil organic carbon + low rainfall**
+After identifying potential risks, the system provides practical recommendations, such as:
 
-may indicate increased water-related ecological stress because soil condition and water availability can interact.
+- Improving soil organic matter
+- Increasing crop diversity
+- Supporting pollinator habitats
+- Reducing excessive chemical inputs
+- Improving water management
+- Maintaining habitat diversity
+- Monitoring environmental indicators regularly
 
-Another example:
+Recommendations are generated based on the detected environmental conditions.
 
-**Monoculture + low species richness**
+### 4. Scientific Knowledge Retrieval
 
-may indicate simplified habitat conditions and reduced ecological diversity.
-
-Another example:
-
-**Low crop diversity + low pollinator abundance**
-
-may indicate limited food and habitat resources for pollinators.
-
----
-
-## 3. Scientific Evidence Retrieval
-
-EcoIntel AI uses a lightweight **Retrieval-Augmented Generation (RAG)** approach.
+EcoIntel AI uses a lightweight **Retrieval-Augmented Generation (RAG)** approach to connect environmental reasoning with scientific knowledge.
 
 Scientific knowledge is stored in a structured JSON knowledge base:
 
-```text
+```
 backend/knowledge/knowledge.json
+```
 
 The system uses:
 
-TF-IDF vectorization
-Cosine similarity
-Relevance-based document retrieval
+- TF-IDF vectorization
+- Cosine similarity
+- Relevance-based document retrieval
 
-The retrieved evidence is displayed with:
+When a user asks an environmental question, relevant knowledge entries are retrieved from the knowledge base, including:
 
-Scientific source
-Report/research title
-Topic
-Relevance score
-Supporting scientific explanation
+- Source
+- Title
+- Topic
+- Relevant environmental information
+- Relevance score
 
-This makes the evidence retrieval process transparent.
+### 5. Conversational Environmental Interface
 
-4. Actionable Recommendations
+Users can interact with EcoIntel AI through a web-based chatbot interface. The interface allows users to:
 
-The system generates environmental recommendations based on identified risks and relationships.
+- Ask environmental questions
+- Provide environmental observations
+- Submit structured environmental data
+- Receive environmental risk analysis
+- View scientific evidence
+- Get actionable recommendations
 
-Each recommendation contains:
+### 6. Structured Environmental Input
 
-Recommended action
-Scientific reasoning
-Affected environmental metrics
-Expected time horizon
-Supporting scientific evidence
+Environmental observations can be represented using structured JSON data.
 
-Example:
+**Example:**
 
-Introduce appropriate soil-cover practices and diversified vegetation.
-
-The system then explains why the recommendation may address the identified environmental conditions.
-
-5. Conversational Environmental Interface
-
-Users can describe environmental situations using natural language.
-
-Example:
-
-My farm has low soil carbon, low rainfall, monoculture wheat and very few pollinators. What should I do?
-
-The system extracts relevant environmental information from the message and performs environmental reasoning.
-
-6. Structured Environmental Input
-
-The system also supports structured JSON environmental information through the /analyze API endpoint.
-
-Example:
-
+```json
 {
   "soil": {
     "ph": 6.2,
@@ -153,192 +145,236 @@ Example:
     "pollution": "moderate"
   }
 }
-🏗️ System Architecture
-                         USER
-                           │
-                           ▼
-                Natural Language Query
-                           │
-                           ▼
-                    FastAPI Backend
-                           │
-                ┌──────────┴──────────┐
-                │                     │
-                ▼                     ▼
-        Environmental           Structured JSON
-          Extraction                 Input
-                │                     │
-                └──────────┬──────────┘
-                           ▼
-                 Environmental Reasoning
-                           │
-                 ┌─────────┴─────────┐
-                 │                   │
-                 ▼                   ▼
-          Risk Identification   Multi-Metric
-                                Relationships
-                 │                   │
-                 └─────────┬─────────┘
-                           ▼
-                     RAG Retrieval
-                           │
-                           ▼
-                TF-IDF + Cosine Similarity
-                           │
-                           ▼
-                Scientific Knowledge Base
-                    knowledge.json
-                           │
-                           ▼
-                Scientific Evidence
-                           │
-                           ▼
-                  Recommendations
-                           │
-                           ▼
-                    Chatbot Response
-🧠 RAG / Knowledge System
+```
 
-EcoIntel AI implements a lightweight RAG pipeline.
+This structured representation allows the reasoning engine to process multiple environmental dimensions together.
 
-The scientific knowledge base is stored in:
+---
 
-backend/knowledge/knowledge.json
+## 🏗️ System Architecture
 
-Each document follows a structured format:
+The overall EcoIntel AI workflow is:
 
-{
-  "id": "soil_carbon",
-  "topic": "soil organic carbon",
-  "source": "FAO",
-  "title": "Recarbonizing Global Soils",
-  "content": "Scientific evidence..."
-}
-Retrieval Process
-
-The retrieval pipeline works as follows:
-
-Scientific knowledge is loaded from knowledge.json.
-Document content is converted into TF-IDF vectors.
-The user's environmental query is converted into a TF-IDF vector.
-Cosine similarity is calculated between the query and stored documents.
-The most relevant documents are selected.
-Retrieved scientific evidence is returned with the environmental recommendations.
-
-This allows the chatbot to provide evidence that is directly connected to the user's environmental query.
-
-📚 Scientific Knowledge Sources
-
-The current curated knowledge base contains information from recognized environmental organizations and scientific assessment sources, including:
-
-FAO — Food and Agriculture Organization
-IPBES — Intergovernmental Science-Policy Platform on Biodiversity and Ecosystem Services
-IPCC — Intergovernmental Panel on Climate Change
-
-Current knowledge topics include:
-
-Soil organic carbon
-Soil cover
-Agroforestry
-Crop diversification
-Biodiversity
-Climate and land
-Habitat diversity
-Water and ecosystems
-📊 Environmental Data Schema
-
-The system organizes environmental information into the following major categories:
-
-Environment
-│
-├── soil
-│   ├── ph
-│   ├── organic_carbon
-│   └── moisture
-│
-├── climate
-│   ├── rainfall
-│   └── temperature
-│
-├── land
-│   ├── crop
-│   └── land_use
-│
-├── biodiversity
-│   ├── species_richness
-│   └── pollinator_abundance
-│
-└── human_impact
-    └── pollution
-🔌 API Endpoints
-GET /
-
-Returns the basic project status.
-
-Example response:
-
-{
-  "project": "EcoIntel AI",
-  "description": "AI Biodiversity Intelligence System",
-  "status": "running"
-}
-POST /analyze
-
-Analyzes structured environmental data.
-
-The endpoint returns:
-
-Environmental findings
-Environmental relationships
-Risk factors
-Retrieved scientific evidence
+```
+USER
+ │
+ ▼
+Natural Language Query
+ │
+ ▼
+FastAPI Backend
+ │
+ ▼
+Environmental Data Extraction
+ │
+ ▼
+Structured Environmental Input
+ │
+ ▼
+Environmental Reasoning
+ │
+ ▼
+Risk Identification
+ │
+ ▼
+Multi-Metric Relationship Analysis
+ │
+ ▼
+RAG Knowledge Retrieval
+ │
+ ▼
+TF-IDF + Cosine Similarity
+ │
+ ▼
+Scientific Knowledge Base
+ │
+ ▼
+Scientific Evidence
+ │
+ ▼
 Recommendations
-Affected environmental metrics
-Time horizon
-POST /chat
+ │
+ ▼
+Chatbot Response
+```
 
-Accepts a natural-language environmental question.
+---
 
-Example:
+## 🔬 Environmental Reasoning
 
-My farm has low soil carbon, low rainfall, monoculture wheat and very few pollinators. What should I do?
+The reasoning engine is implemented in:
 
-The chatbot performs the following steps:
+```
+backend/reasoning.py
+```
 
-User Question
-      ↓
-Environmental Information Extraction
-      ↓
-Environmental Risk Analysis
-      ↓
-Multi-Metric Reasoning
-      ↓
-Scientific Evidence Retrieval
-      ↓
-Recommendation Generation
-      ↓
-Evidence-Backed Response
-🛠️ Technology Stack
-Backend
-Python
-FastAPI
-Uvicorn
-Pydantic
-RAG / Knowledge Retrieval
-Scikit-learn
+The system evaluates relationships between environmental indicators.
+
+**Example 1**
+
+```
+Low Soil Organic Carbon
+        +
+   Low Rainfall
+        ↓
+Potential Water / Soil Stress
+        ↓
+   Recommendation:
+Improve soil organic matter and
+water management practices
+```
+
+**Example 2**
+
+```
+Monoculture
+        +
+Low Species Richness
+        ↓
+Habitat Simplification
+        ↓
+   Recommendation:
+Increase crop and habitat diversity
+```
+
+**Example 3**
+
+```
+Low Crop Diversity
+        +
+Low Pollinator Abundance
+        ↓
+Reduced Food / Habitat Resources
+        ↓
+   Recommendation:
+Increase flowering vegetation
+and habitat diversity
+```
+
+The reasoning system is currently rule-based and designed to provide interpretable environmental insights.
+
+---
+
+## 📚 Scientific Knowledge Sources
+
+The knowledge base is designed around information from recognized environmental and scientific organizations:
+
+- **FAO** — Food and Agriculture Organization of the United Nations
+- **IPBES** — Intergovernmental Science-Policy Platform on Biodiversity and Ecosystem Services
+- **IPCC** — Intergovernmental Panel on Climate Change
+
+These sources provide scientific context for environmental and biodiversity-related information used by the system.
+
+---
+
+## 🧠 RAG / Knowledge System
+
+EcoIntel AI implements a lightweight Retrieval-Augmented Generation style pipeline.
+
+The knowledge base is located at:
+
+```
+backend/knowledge/knowledge.json
+```
+
+The retrieval process works as follows:
+
+```
+User Query
+    ↓
+Text Processing
+    ↓
 TF-IDF Vectorization
+    ↓
 Cosine Similarity
-JSON Knowledge Base
-Frontend
-HTML5
-CSS3
-JavaScript
-Development Tools
-Visual Studio Code
-Git
-GitHub
-FastAPI Swagger UI
-📁 Project Structure
+    ↓
+Relevant Knowledge Entries
+    ↓
+Environmental Reasoning
+    ↓
+Evidence-Based Response
+```
+
+**Retrieval Method**
+
+The current implementation uses:
+
+- **TF-IDF** — converts text into numerical vectors based on the importance of words within the knowledge base.
+- **Cosine Similarity** — measures how closely the user's query matches available scientific knowledge entries.
+
+The most relevant entries are selected for the response.
+
+---
+
+## 📊 Environmental Data Schema
+
+EcoIntel AI organizes environmental information into several major categories.
+
+| Category | Example Indicators |
+|---|---|
+| Soil | pH, organic carbon, moisture |
+| Climate | rainfall, temperature |
+| Land | crop, land use |
+| Biodiversity | species richness, pollinator abundance |
+| Human Impact | pollution |
+
+This structure allows the system to combine multiple environmental dimensions during reasoning.
+
+---
+
+## 🔌 API Endpoints
+
+The backend is implemented using FastAPI.
+
+| Endpoint | Method | Description |
+|---|---|---|
+| `/` | GET | Provides basic information about the EcoIntel AI backend |
+| `/analyze` | GET | Used for environmental analysis requests depending on the configured backend implementation |
+| `/chat` | POST | Used for conversational environmental queries |
+
+**API Documentation**
+
+FastAPI automatically provides interactive API documentation. When the backend is running locally, open:
+
+```
+http://127.0.0.1:8000/docs
+```
+
+This provides an interactive Swagger interface for testing the API endpoints.
+
+---
+
+## 🛠️ Technology Stack
+
+**Backend**
+- Python
+- FastAPI
+- Uvicorn
+- Scikit-learn
+- TF-IDF
+- Cosine Similarity
+
+**Frontend**
+- HTML5
+- CSS3
+- JavaScript
+
+**Knowledge System**
+- JSON knowledge base
+- TF-IDF retrieval
+- Cosine similarity
+
+**Development Tools**
+- Visual Studio Code
+- Git
+- GitHub
+- Python Virtual Environment
+
+---
+
+## 📁 Project Structure
+
+```
 EcoIntel-AI/
 │
 ├── backend/
@@ -355,306 +391,369 @@ EcoIntel-AI/
 │   └── script.js
 │
 ├── .gitignore
-├── README.md
-│
-└── venv/
-Important
+└── README.md
+```
 
-The venv/ directory is excluded from Git using .gitignore.
+> **Note:** The local Python virtual environment (`venv/`) is not included in the GitHub repository because it is excluded using `.gitignore`.
 
-Python cache files and environment variable files are also excluded.
+---
 
-💻 Local Setup
-1. Clone the Repository
+## ⚙️ Local Installation
 
-After the GitHub repository is created:
+### 1. Clone the Repository
 
-git clone <YOUR_GITHUB_REPOSITORY_URL>
+Open PowerShell and run:
 
-Navigate into the project:
+```bash
+git clone https://github.com/Mrunaliaher/EcoIntel-AI.git
+```
 
+Move into the project directory:
+
+```bash
 cd EcoIntel-AI
-2. Create a Virtual Environment
+```
+
+### 2. Create a Virtual Environment
+
+```bash
+python -m venv venv
+```
+
+### 3. Activate the Virtual Environment
 
 On Windows PowerShell:
 
-python -m venv venv
-
-Activate the virtual environment:
-
+```powershell
 .\venv\Scripts\Activate.ps1
-3. Install Dependencies
+```
+
+If activation is successful, the terminal should show:
+
+```
+(venv)
+```
+
+### 4. Install Dependencies
 
 Install the required Python packages:
 
-python -m pip install fastapi uvicorn scikit-learn
-▶️ Running the Backend
+```bash
+pip install fastapi uvicorn scikit-learn
+```
 
-Open PowerShell and navigate to the backend:
+---
 
+## ▶️ Running the Backend
+
+Move into the backend directory:
+
+```bash
 cd backend
-
-If the virtual environment is not activated:
-
-..\venv\Scripts\Activate.ps1
+```
 
 Start the FastAPI server:
 
-python -m uvicorn main:app --reload
+```bash
+uvicorn main:app --reload
+```
 
-The backend will run at:
+The backend should start at:
 
+```
 http://127.0.0.1:8000
-📖 API Documentation
+```
 
-FastAPI automatically provides interactive API documentation.
+---
 
-Open:
+## 🌐 Running the Frontend
 
+The frontend is contained in:
+
+```
+frontend/
+```
+
+Open `frontend/index.html` in a web browser.
+
+The frontend communicates with the FastAPI backend running locally.
+
+---
+
+## 🧪 Testing
+
+EcoIntel AI can be tested using the FastAPI Swagger interface.
+
+Start the backend:
+
+```bash
+uvicorn main:app --reload
+```
+
+Then open:
+
+```
 http://127.0.0.1:8000/docs
+```
 
-The Swagger interface can be used to test:
+Test the available endpoints using the interactive Swagger interface.
 
-GET /
-POST /analyze
-POST /chat
-🌐 Running the Frontend
+---
 
-The frontend is a lightweight HTML/CSS/JavaScript interface.
+## 🔍 Example Environmental Query
 
-Open:
+**Example user query:**
 
-frontend/index.html
+> The soil organic carbon is low, rainfall is low, and the field is under monoculture. Species richness and pollinator abundance are also low. What could be the environmental risks?
 
-in a web browser.
+The system can identify relationships such as:
 
-The frontend communicates with the FastAPI backend through:
+```
+Low Soil Organic Carbon
+        +
+    Low Rainfall
+        ↓
+Potential Soil / Water Stress
+```
 
-http://127.0.0.1:8000/chat
+```
+Monoculture
+        +
+Low Species Richness
+        ↓
+Habitat Simplification
+```
 
-The chatbot interface displays:
+```
+Low Crop Diversity
+        +
+Low Pollinator Abundance
+        ↓
+Reduced Ecological Support
+```
 
-Environmental assessment
-Risk factors
-Multi-metric relationships
-Recommendations
-Affected environmental metrics
-Scientific evidence
-🧪 Testing and Validation
+The chatbot then provides scientific context and recommendations based on the retrieved knowledge.
 
-The backend was tested using the FastAPI Swagger interface.
+---
 
-A test environment included:
+## 🌍 Challenge Alignment
 
-Soil organic carbon: 0.3
-Soil moisture: 18
-Soil pH: 6.2
-Rainfall: 450
-Temperature: 29
-Land use: monoculture
-Species richness: low
-Pollinator abundance: low
-Pollution: moderate
+EcoIntel AI addresses the major objectives of the Darukaa.Earth AI Biodiversity Intelligence Chatbot Challenge.
 
-The system successfully identified environmental concerns including:
+| Challenge Requirement | EcoIntel AI Implementation |
+|---|---|
+| Biodiversity intelligence | Species richness and pollinator analysis |
+| Environmental understanding | Soil, climate, land and pollution indicators |
+| Multi-metric reasoning | Relationships between multiple indicators |
+| AI-powered chatbot | Conversational web interface |
+| Knowledge retrieval | TF-IDF + cosine similarity RAG |
+| Scientific grounding | FAO, IPBES and IPCC knowledge |
+| Risk identification | Rule-based environmental reasoning |
+| Actionable insights | Environmental recommendations |
+| Structured environmental data | JSON-based environmental schema |
+| Explainability | Retrieved evidence and interpretable rules |
 
-Low soil organic carbon
-Low soil moisture
-Potential water stress
-Monoculture / low crop diversity
-Low species richness
-Low pollinator abundance
+---
 
-The system also identified multi-metric relationships and returned relevant scientific evidence and recommendations.
+## 💡 Why This Approach?
 
-💬 Example Chatbot Query
-User Input
-My farm has low soil carbon, low rainfall, monoculture wheat and very few pollinators. What should I do?
-Environmental Assessment
+Environmental problems are usually interconnected. For example, biodiversity loss may be influenced by:
 
-The system identifies:
+- Land-use change
+- Reduced crop diversity
+- Soil degradation
+- Water stress
+- Pollution
+- Climate conditions
 
-Low soil organic carbon
-Low rainfall / potential water stress
-Monoculture / low crop diversity
-Low pollinator abundance
+Therefore, EcoIntel AI focuses on relationships between environmental indicators rather than looking at individual measurements independently.
+
+The combination of:
+
+```
+Environmental Data
+        +
+    Reasoning
+        +
+Scientific Knowledge Retrieval
+        +
+     Evidence
+        +
+ Recommendations
+```
+
+allows the system to provide more meaningful environmental intelligence.
+
+---
+
+## 🔐 Privacy and API Keys
+
+The current project does not require external API keys. No secret credentials should be committed to the repository. Environment variables and sensitive files are excluded through `.gitignore`.
+
+---
+
+## ⚠️ Current Limitations
+
+1. **Rule-Based Reasoning** — Environmental reasoning currently relies on predefined rules rather than a fully trained environmental intelligence model.
+2. **Small Knowledge Base** — The scientific knowledge base is currently limited to a curated set of environmental information.
+3. **TF-IDF Retrieval** — The RAG system currently uses TF-IDF and cosine similarity instead of modern embedding-based retrieval.
+4. **Limited Data Sources** — The current prototype does not yet directly integrate live weather APIs, satellite imagery, GIS data, biodiversity databases, or IoT sensor streams.
+5. **Natural Language Extraction** — Environmental values provided in natural language are currently extracted using lightweight logic rather than a large language model.
+6. **Geographic Context** — The current prototype does not yet perform detailed location-specific environmental analysis.
+
+---
+
+## 🚀 Future Improvements
+
+**Advanced RAG**
+- Sentence embeddings
+- Vector databases
+- Semantic search
+- Larger scientific document collections
+- PDF-based knowledge ingestion
+
+**Environmental Data Integration**
+- Weather APIs
+- Climate datasets
+- Satellite imagery
+- GIS information
+- Soil databases
+- Biodiversity datasets
+- IoT environmental sensors
+
+**Advanced AI**
+- Large Language Models
+- Machine learning-based environmental risk prediction
+- Explainable AI
+- Time-series environmental forecasting
+
+**Geographic Intelligence**
+
+Future versions could support:
+
+```
+Location
+   ↓
+Environmental Data
+   ↓
+Climate + Soil + Land Use
+   ↓
+Biodiversity Information
+   ↓
+Risk Analysis
+   ↓
+Location-Specific Recommendations
+```
+
+**Deployment**
+
+The system can later be deployed using:
+
+- Cloud hosting
+- Docker
+- CI/CD pipelines
+- Production database
+- Scalable vector database
+- Cloud-based AI services
+
+---
+
+## 🧪 Validation Strategy
+
+The system can be validated using different environmental scenarios.
+
+**Scenario 1 — Soil Stress**
+
+- Low soil organic carbon
+- Low rainfall
+- Low soil moisture
+
+Expected analysis: *Potential soil and water stress*
+
+**Scenario 2 — Biodiversity Stress**
+
+- Monoculture
+- Low species richness
+- Low crop diversity
+
+Expected analysis: *Potential habitat simplification and reduced ecological diversity*
+
+**Scenario 3 — Pollinator Stress**
+
+- Low crop diversity
+- Low pollinator abundance
+
+Expected analysis: *Potential reduction in food and habitat resources for pollinators*
+
+**Scenario 4 — Pollution Stress**
+
+- Moderate / high pollution
+- Low biodiversity
+
+Expected analysis: *Potential environmental stress requiring further monitoring*
+
+---
+
+## 📈 Development Roadmap
+
+```
+Phase 1
+│
+├── Project setup
+├── Backend development
+├── Frontend development
+└── Environmental knowledge base
+        ↓
+Phase 2
+│
+├── Environmental reasoning
+├── Risk identification
+├── RAG retrieval
+└── Scientific evidence
+        ↓
+Phase 3
+│
+├── Testing
+├── Validation
+├── UI improvements
+└── Documentation
+        ↓
+Phase 4
+│
+├── Embedding-based RAG
+├── Larger knowledge base
+├── External environmental datasets
+└── Cloud deployment
+```
+
+---
+
+## 🔗 Project Links
+
+- **GitHub Repository:** [https://github.com/Mrunaliaher/EcoIntel-AI](https://github.com/Mrunaliaher/EcoIntel-AI)
+- **Live Demo:** Not deployed yet
+
+---
+
+
+## 🌱 Conclusion
+
+EcoIntel AI demonstrates how artificial intelligence, environmental reasoning, and scientific knowledge retrieval can be combined to support biodiversity and environmental intelligence.
+
+The system connects:
+
+```
+Environmental Observations
+          ↓
 Multi-Metric Reasoning
+          ↓
+Risk Identification
+          ↓
+Scientific Knowledge Retrieval
+          ↓
+Evidence-Based Insights
+          ↓
+Actionable Recommendations
+```
 
-The system identifies relationships such as:
-
-Low soil organic carbon
-        +
-Low rainfall
-        ↓
-Potential water-related ecological stress
-
-and:
-
-Low crop diversity
-        +
-Low pollinator abundance
-        ↓
-Limited food and habitat resources
-Example Recommendations
-1. Introduce appropriate soil-cover practices
-   and diversified vegetation.
-
-2. Create flowering habitat strips using locally
-   appropriate plant species.
-
-The system also retrieves supporting scientific evidence from the knowledge base.
-
-🔐 API Keys and Credentials
-
-The current MVP does not require an external AI API key.
-
-The project currently does not depend on:
-
-OpenAI API
-Gemini API
-Claude API
-Paid AI APIs
-
-No secret credentials should be committed to GitHub.
-
-The .gitignore file excludes environment variable files such as:
-
-.env
-.env.*
-🚀 CI/CD
-
-CI/CD is not configured yet for the current MVP.
-
-The project has been developed, tested and validated locally.
-
-Future versions can use GitHub Actions to automate:
-
-Dependency installation
-Backend testing
-API validation
-Code checks
-Deployment
-⚠️ Current Limitations
-
-The current MVP is intentionally lightweight.
-
-1. Natural Language Extraction
-
-Environmental information extraction from natural-language queries currently uses rule-based keyword matching.
-
-For example, phrases such as:
-
-low soil carbon
-low rainfall
-monoculture
-few pollinators
-
-are recognized by the environmental extraction module.
-
-2. Knowledge Base Size
-
-The current knowledge base contains a curated collection of scientific evidence.
-
-A larger production system would require more research papers, reports and environmental datasets.
-
-3. Retrieval Method
-
-The current RAG implementation uses:
-
-TF-IDF + Cosine Similarity
-
-rather than neural embeddings or a dedicated vector database.
-
-This lightweight approach was selected to keep the MVP simple, fast and easy to run locally.
-
-4. Local Environmental Conditions
-
-Environmental recommendations depend on local conditions.
-
-Actual outcomes may vary depending on:
-
-Soil type
-Local climate
-Species
-Geography
-Land-management practices
-Water availability
-Existing habitat conditions
-
-Therefore, recommendations should be considered evidence-informed decision support rather than guaranteed outcomes.
-
-🔮 Future Improvements
-
-Future versions of EcoIntel AI could include:
-
-Neural embedding-based retrieval
-Vector database integration
-Larger scientific document collection
-Research-paper and PDF ingestion
-Improved environmental entity extraction
-Geographic coordinate support
-Real-time weather data
-Climate datasets
-Satellite and land-cover data
-Biodiversity datasets
-Improved conversational memory
-Automated evaluation
-GitHub Actions CI/CD
-Cloud deployment
-Optional LLM integration
-More advanced biodiversity impact prediction
-🌍 Challenge Alignment
-
-EcoIntel AI addresses the major requirements of the Darukaa.Earth challenge.
-
-Challenge Requirement	EcoIntel AI Implementation
-Structured environmental knowledge	knowledge.json
-Soil health	pH, organic carbon, moisture
-Land use / land cover	Land-use analysis
-Biodiversity indicators	Species richness, pollinator abundance
-Climate	Rainfall and temperature
-Human impact	Pollution
-RAG / retrieval	TF-IDF + cosine similarity
-Scientific evidence	FAO, IPBES and IPCC knowledge
-Multi-metric reasoning	Environmental relationship analysis
-Actionable recommendations	Recommendation generation
-Natural-language interaction	/chat endpoint
-Structured input	/analyze endpoint
-Evidence transparency	Retrieved source and relevance score
-📌 Project Links
-GitHub Repository
-[ADD FINAL GITHUB REPOSITORY LINK HERE]
-Live Demo
-[ADD LIVE DEMO URL HERE IF DEPLOYED]
-Submission Document
-
-The final submission document contains the project overview, repository information, setup instructions and challenge submission details.
-
-👩‍💻 Project Information
-
-Project Name: EcoIntel AI
-
-Project Type: AI Biodiversity Intelligence Chatbot
-
-Challenge: Darukaa.Earth AI Biodiversity Intelligence Chatbot Challenge
-
-Primary Goal: Evidence-informed environmental intelligence and biodiversity recommendations
-
-📋 Final Submission Checklist
- GitHub repository created
- Source code uploaded
- .gitignore configured
- README.md added
- Backend tested successfully
- Frontend tested successfully
- /analyze endpoint tested
- /chat endpoint tested
- RAG retrieval demonstrated
- Scientific evidence included
- Multi-metric reasoning demonstrated
- Recommendations generated
- GitHub repository link added to submission document
- Live demo link added if deployed
- Final Word submission document completed
- Repository checked for API keys and sensitive files
- Final project submitted through the challenge platform
+The current prototype provides a lightweight and interpretable foundation that can be extended with larger scientific datasets, semantic RAG, real-time environmental information, geospatial intelligence, and advanced AI models.
